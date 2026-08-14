@@ -1,10 +1,10 @@
-package org.example.sbb;
+package org.example.sbb.answer;
 
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import org.example.sbb.question.Question;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Getter

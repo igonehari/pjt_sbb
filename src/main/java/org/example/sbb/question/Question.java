@@ -1,9 +1,9 @@
-package org.example.sbb;
+package org.example.sbb.question;
 
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-import org.springframework.boot.ansi.AnsiElement;
+import org.example.sbb.answer.Answer;
 
 import java.time.LocalDateTime;
 import java.util.List;
