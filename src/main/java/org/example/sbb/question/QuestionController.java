@@ -5,10 +5,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
-
+@RequestMapping("/question")
 @RequiredArgsConstructor
 @Controller
 public class QuestionController {
@@ -16,7 +16,7 @@ public class QuestionController {
     //    private final QuestionRepository questionRepository;
     private final QuestionService questionService;
 
-    @GetMapping("/question/list")
+    @GetMapping("/list")
     public String list(Model model) {
 //        List<Question> questionList = this.questionRepository.findAll();
         List<Question> questionList = this.questionService.getList();
@@ -26,7 +26,7 @@ public class QuestionController {
         return "question_list";  // question_list.html  리턴 됨
     }
 
-    @GetMapping("question/detail/{id}")
+    @GetMapping("/detail/{id}")
     // @PathVariable
     public String detail(Model model, @PathVariable("id") Integer id) {
         Question question = this.questionService.getQuestion(id);

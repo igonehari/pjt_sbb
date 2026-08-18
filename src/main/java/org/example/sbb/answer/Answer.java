@@ -16,7 +16,7 @@ public class Answer {
     private Integer id;
 
     @Column(columnDefinition = "Text") // field 타입을 text로 지정
-    private Integer content;
+    private String content;
 
     private LocalDateTime createDate;
 
