@@ -3,6 +3,7 @@ package org.example.sbb;
 
 import org.example.sbb.question.Question;
 import org.example.sbb.question.QuestionRepository;
+import org.example.sbb.question.QuestionService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -15,6 +16,8 @@ class SbbApplicationTests {
     @Autowired  // 의존성 주입(DI) --> new 사용 안함 --> questionRepository 객체를 생성 주입 (Spring)
     private QuestionRepository questionRepository;
 
+    @Autowired
+    private QuestionService questionService;
 
     @Test
     void testJPA() {
@@ -31,4 +34,12 @@ class SbbApplicationTests {
         this.questionRepository.save(q2);
     }
 
+    @Test
+    void testJpa_03() {
+        for (int i = 1; i<= 300; i++) {
+            String subject = String.format("테스트 데이터입니다:[%03d]", i);
+            String content = "내용 없음";
+            this.questionService.create(subject, content);
+        }
+    }
 }
